@@ -12,9 +12,9 @@ function FlightData(props) {
   useEffect(() => {
     setLoading(true);
     const authStr = AUTH_TOKEN;
-    axios.get(`https://api.aviationstack.com/v1/flights?flight_icao=${props.requestedFlight}`, {headers: {access_key: authStr}})
+    axios.get(`http://api.aviationstack.com/v1/flights?access_key=${authStr}&flight_icao=cdc8029`)
     .then(response => {
-      getFlight(response.data)
+      console.log(response.data)
       setLoading(false);
     })
     .catch((error) => {
