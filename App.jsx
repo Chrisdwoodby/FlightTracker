@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import FlightData from './components/FlightData.jsx';
+import SearchBar from './components/SearchBar.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +9,10 @@ class App extends React.Component {
   }
   render() {
     return (
-    <h1>hello world</h1>
+      <div>
+        <SearchBar/>
+        <FlightData/>
+      </div>
     )
   }
 }
