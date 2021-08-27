@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
-const port = 6006;
+const port = 5000;
+
+
 
 app.use(express.json());
 app.use(express.static(__dirname + '/../dist'))
