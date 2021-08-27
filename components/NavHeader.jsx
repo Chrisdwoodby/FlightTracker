@@ -26,6 +26,13 @@ function NavHeader(props) {
         aria-label="Search"
         onChange={event => props.setFlightIata(event.target.value)}
       />
+      <FormControl
+        type="search"
+        placeholder="Search"
+        className="mr-2"
+        aria-label="Search"
+        onChange={event => props.setAirport(event.target.value)}
+      />
       <Button variant="outline-success" onClick={props.updateFlight}>Search</Button>
     </Form>
   </Navbar.Collapse>

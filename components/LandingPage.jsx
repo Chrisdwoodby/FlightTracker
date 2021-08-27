@@ -10,12 +10,15 @@ function LandingPage(props) {
   const [requestedFlight, setFlightIata] = useState('');
   const [loading, setLoading] = useState(true);
   const [flights, getFlight] = useState([]);
+  const [requestedAirport, setAirport] = useState('');
 
   var updateFlight = function() {
     setLoading(true);
     var params = {
       access_key: AUTH_TOKEN,
-      flight_iata: requestedFlight
+      flight_iata: requestedFlight,
+      arr_iata: requestedAirport,
+      limit: 1
     }
     axios.get(`http://api.aviationstack.com/v1/flights`, {params})
     .then(response => {
@@ -29,7 +32,7 @@ function LandingPage(props) {
 
   return (
     <Container>
-      <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight}/>
+      <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport}/>
       <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading}/>
     </Container>
   )
