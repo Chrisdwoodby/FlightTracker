@@ -7,21 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import LandingPage from './LandingPage.jsx';
 import Image from 'react-bootstrap/Image';
-// import UA from '../airlineLogos/UA.png';
-// import DL from '../airlineLogos/DL.png';
-// import VS from '../airlineLogos/VS.png';
-// var name = require('../airlineLogos/AA.png').default;
-
 
 function FlightData(props) {
-
-
-  // var getTime = function(arrival) {
-  //   var time = Math.abs(Date.now() - Date.parse(arrival)) / 60000;
-  //   var delta = Math.floor(time / 60) % 60;
-  //   time -= delta * 60;
-  //   return time;
-  // }
 
   var getTime = function(arrival) {
     var diff = Date.parse(arrival) - new Date();
@@ -34,27 +21,41 @@ function FlightData(props) {
     var h = hours - days * 24;
     var m = mins - hours * 60;
     var s = secs - mins * 60;
+    if (m <= 0) {
+      return 'The aircraft has landed and will arrive at the gate shortly';
+    } else {
+      return 'This flight is scheduled to arrive in ' + m + ' minutes';
+    }
+  }
 
-    return m;
+  var flightStatus = function(status) {
+    if (status === null) {
+      return 'Arriving on time.'
+    } else {
+      return 'This flight has been delayed ' + props.flights.data[0].arrival.delay + ' minutes.'
+    }
   }
 
 
   return (
    <Container>
-    {!props.loading &&
+    {!props.loading && !props.showHome &&
     <Row>
       {console.log(props.flights)}
-    {props.flights.data.map((flight) => (
-      <Card>
-        <Image src={require('../airlineLogos/' + flight.airline.iata + '.png').default} width="200" height="200"/>
-        <Col>The aircraft will arrive at terminal {flight.arrival.terminal}</Col>
-        <Col>This flight is scheduled to arrive in {getTime(flight.arrival.scheduled)} minutes</Col>
-      </Card>
-     ))}
+      <Row style={{padding: '12px', fontSize:"30px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
+      <Col md="auto">
+        <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} width="200" height="200"/>
+      </Col>
+      <Col>
+        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
+        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
+      </Col>
+      <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>
+      {flightStatus(props.flights.data[0].arrival.delay)}
+    </Row>
     </Row>
     }
    </Container>
-
   )
 }
 

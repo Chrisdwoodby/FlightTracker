@@ -21,14 +21,14 @@ function NavHeader(props) {
     <Form className="d-flex">
       <FormControl
         type="search"
-        placeholder="Search"
+        placeholder="Flight iata"
         className="mr-2"
         aria-label="Search"
         onChange={event => props.setFlightIata(event.target.value)}
       />
       <FormControl
         type="search"
-        placeholder="Search"
+        placeholder="Airport iata"
         className="mr-2"
         aria-label="Search"
         onChange={event => props.setAirport(event.target.value)}
