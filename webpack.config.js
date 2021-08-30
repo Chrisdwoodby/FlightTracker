@@ -29,6 +29,17 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /\.(mov|mp4)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'airport'
+            }
+          },
+        ],
       }
     ],
   },

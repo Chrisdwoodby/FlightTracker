@@ -6,6 +6,13 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 
 function NavHeader(props) {
+
+
+  var home = function() {
+    props.showHome = true
+  }
+
+
   return (
     <Navbar bg="light" expand="lg">
   <Navbar.Brand href="#">CDW Global</Navbar.Brand>
@@ -16,7 +23,7 @@ function NavHeader(props) {
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
-      <Nav.Link href="#action1">Home</Nav.Link>
+      <Nav.Link onClick={home}>Home</Nav.Link>
     </Nav>
     <Form className="d-flex">
       <FormControl
