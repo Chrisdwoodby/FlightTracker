@@ -38,22 +38,22 @@ function FlightData(props) {
   }
 
   return (
-   <Container>
+   <Container >
     {!props.loading && !props.showHome &&
-    <Row>
+    <Row >
       {console.log(props.flights)}
-      <Row style={{padding: '12px', fontSize:"30px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
+      <Row style={{padding: '12px', fontSize:"30px", fontFamily: "sans-serif", letterSpacing: "2px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
       <Col md="auto">
-        <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} width="200" height="200" id="logo"/>
+        <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} id="logo"/>
       </Col>
       <Col>
-        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
-        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "green", fontWeight: "bold"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
       </Col>
       <Row
-         id="alert" style={{padding: '12px', backgroundColor: "rgb(242,244,244)", textAlign: "center"}}>{flightStatus(props.flights.data[0].arrival.delay)}
+         id="alert" style={{textAlign: "center"}}>{flightStatus(props.flights.data[0].arrival.delay)}
       </Row>
-      <Row id="overview" style={{padding: '70px', backgroundColor: "rgb(242,244,244)"}}>
+      <Row id="overview" style={{padding: '70px'}}>
         <Col style={{paddingTop: "45px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "4px"}}>
           Departing from {props.flights.data[0].departure.airport} airport
         </Col>
