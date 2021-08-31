@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import LandingPage from './LandingPage.jsx';
 import Image from 'react-bootstrap/Image';
+import plane from '../airlineLogos/plane.png'
 
 function FlightData(props) {
 
@@ -30,12 +31,11 @@ function FlightData(props) {
 
   var flightStatus = function(status) {
     if (status === null) {
-      return 'Arriving on time.'
+      return 'Arriving on time'
     } else {
-      return 'This flight has been delayed ' + props.flights.data[0].arrival.delay + ' minutes.'
+      return 'This flight has been delayed ' + props.flights.data[0].arrival.delay + ' minutes'
     }
   }
-
 
   return (
    <Container>
@@ -44,15 +44,26 @@ function FlightData(props) {
       {console.log(props.flights)}
       <Row style={{padding: '12px', fontSize:"30px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
       <Col md="auto">
-        <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} width="200" height="200"/>
+        <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} width="200" height="200" id="logo"/>
       </Col>
       <Col>
-        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
-        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
+        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
+        <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
       </Col>
-      <Row style={{padding: '12px', backgroundColor: "rgb(242,244,244)"}}>
-      {flightStatus(props.flights.data[0].arrival.delay)}
-    </Row>
+      <Row
+         id="alert" style={{padding: '12px', backgroundColor: "rgb(242,244,244)", textAlign: "center"}}>{flightStatus(props.flights.data[0].arrival.delay)}
+      </Row>
+      <Row id="overview" style={{padding: '70px', backgroundColor: "rgb(242,244,244)"}}>
+        <Col style={{paddingTop: "45px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "4px"}}>
+          Departing from {props.flights.data[0].departure.airport} airport
+        </Col>
+        <Col xs={3}>
+          <Image src={plane} width="120" height="120" id="plane"/>
+        </Col>
+        <Col style={{paddingTop: "45px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "4px"}}>
+          Arriving at {props.flights.data[0].arrival.airport} airport
+        </Col>
+      </Row>
     </Row>
     }
    </Container>
