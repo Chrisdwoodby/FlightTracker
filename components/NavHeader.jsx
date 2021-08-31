@@ -14,8 +14,8 @@ function NavHeader(props) {
 
 
   return (
-    <Navbar bg="dark" expand="lg" class="container-fluid">
-  <Navbar.Brand href="#" style={{color: "white", paddingLeft: "10px"}}>CDW Global</Navbar.Brand>
+    <Navbar bg="dark" expand="lg">
+  <Navbar.Brand href="#" style={{color: "white", paddingLeft: "50px", paddingRight: "50px"}}>CDW Global</Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
@@ -23,7 +23,7 @@ function NavHeader(props) {
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
-      <Nav.Link onClick={home} style={{color: "white", paddingRight: "10px"}}>Home</Nav.Link>
+      <Nav.Link onClick={home} style={{color: "white", paddingRight: "50px"}}>Home</Nav.Link>
     </Nav>
     <Form className="d-flex">
       <FormControl

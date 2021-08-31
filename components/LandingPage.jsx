@@ -34,11 +34,11 @@ function LandingPage(props) {
   }
 
   return (
-    <Container>
+    <div>
       <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport}/>
       <HomePage showHome={showHome} renderHome={renderHome}/>
-      <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading}/>
-    </Container>
+      <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading} />
+    </div>
   )
 
 }
