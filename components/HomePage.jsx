@@ -29,7 +29,7 @@ function HomePage(props) {
               </Col>
               <Col>
                 <Row>
-                 <p style={{padding: "15px", fontFamily: "sans-serif"}}>Christopher Woodby, a Hack Reactor Software Engineering Graduate with 5 years of experience working in client-facing environments, leading and managing personnel through strategic collaboration to continuously improve customers' experience and their satisfaction with the organization. Experienced in developing innovative solutions to more effectively meet clients' expectations through cutting edge product development and data management. Holds a strong belief that technology has the potential to influence how our world evolves not only technologically, but as a society. A people first oriented work ethic, determined to utilize the tolls of today to engineer a better tomorrow. </p>
+                 <p style={{padding: "15px", fontFamily: "sans-serif"}}>Christopher Woodby, a Hack Reactor Software Engineering Graduate with 5 years of experience working in client-facing environments, leading and managing personnel through strategic collaboration to continuously improve customers' experience and their satisfaction with the organization. Experienced in developing innovative solutions to more effectively meet clients' expectations through cutting edge product development and data management. Holds a strong belief that technology has the potential to influence how our world evolves not only technologically, but as a society. A people first oriented work ethic, determined to utilize the tools of today to engineer a better tomorrow. </p>
                 </Row>
               </Col>
             </Row>
