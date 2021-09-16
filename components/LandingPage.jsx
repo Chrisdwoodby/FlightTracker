@@ -14,6 +14,7 @@ function LandingPage(props) {
   const [requestedAirport, setAirport] = useState('');
   const [showHome, renderHome] = useState(true);
 
+
   var updateFlight = function() {
     setLoading(true);
     var params = {
@@ -35,7 +36,7 @@ function LandingPage(props) {
 
   return (
     <div>
-      <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport}/>
+      <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport} showHome={renderHome}/>
       <HomePage showHome={showHome} renderHome={renderHome}/>
       <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading} />
     </div>

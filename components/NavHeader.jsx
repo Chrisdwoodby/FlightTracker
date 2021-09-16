@@ -4,12 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
+import LoginPage from './LoginPage.jsx';
 
 function NavHeader(props) {
 
 
   var home = function() {
-    props.showHome = true
+    props.showHome(false)
   }
 
 
@@ -42,6 +43,9 @@ function NavHeader(props) {
       />
       <Button variant="outline-success" onClick={props.updateFlight} style={{paddingLeft: "10px"}}>Search</Button>
     </Form>
+    <Nav.Link>
+      <LoginPage/>
+    </Nav.Link>
   </Navbar.Collapse>
 </Navbar>
   )
