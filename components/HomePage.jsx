@@ -20,7 +20,7 @@ function HomePage(props) {
           <video autostart="true" autoPlay loop muted src={airport} type="video/mp4" style={{padding: "20px"}}/>
           <h3 style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Our mission</h3>
           <p style={{padding: "20px", fontFamily: "sans-serif"}}>
-            CDW Global was establised with the goal to simplify your air travel expreience by prodiving an easy to navigate interface for flight tracking that anyone and everyone can use. We home to provide our users with the most accurate and up to date information to present a greater sense of relaxation and assurance in our stress filled world.
+            CDW Global was establised with the goal to simplify your air travel expreience by prodiving an easy to navigate interface for flight tracking that anyone and everyone can use. We aim to provide our users with the most accurate and up to date information to present a greater sense of relaxation and assurance in our stress filled world.
           </p>
           <h3 style={{padding: "20px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>About the creator</h3>
             <Row>

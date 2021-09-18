@@ -24,7 +24,7 @@ function NavHeader(props) {
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
-      <Nav.Link onClick={home} style={{color: "white", paddingRight: "50px"}}>Home</Nav.Link>
+      <Nav.Link onClick={home} style={{color: "white", paddingRight: "300px"}}>Home</Nav.Link>
     </Nav>
     <Form className="d-flex">
       <FormControl
