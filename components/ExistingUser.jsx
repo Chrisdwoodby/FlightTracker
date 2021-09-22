@@ -23,17 +23,14 @@ var ExistingUser = function(props) {
   };
 
   var authenticate = function() {
-    axios.get(`http://localhost:9009/users`, {params: {userName: props.signedIn}})
+    axios.get('http://localhost:9009/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
-      if (encrypted === response.data[0].userPassword) {
       console.log(response);
       setDisplayName(`welcome ${response.data[0].userName}!`);
-      } else {
-        alert('NOT A VALID LOGIN');
-      }
+      props.getUserFlightData(response.data[0].id);
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       alert('NOT A VALID LOGIN');
     })
   };
@@ -41,17 +38,16 @@ var ExistingUser = function(props) {
   var handleSubmit = function() {
     authenticate();
     handleClose();
-    console.log(encrypted, props.signedIn)
   }
 
   return (
     <>
-    <Button variant="outline-success" onClick={handleShow}>
+    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif"}}>
       {displayName}
     </Button>
     <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Log Into Your Account</Modal.Title>
+          <Modal.Title style={{fontFamily: "sans-serif"}}>Log Into Your Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

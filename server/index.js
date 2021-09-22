@@ -33,16 +33,27 @@ app.get('/users', (req, res) => {
   });
 });
 
-// app.get('/users/:userPassword/:userName', (req, res) => {
-//   model.getUser(req, (error, results) => {
-//     if (error) {
-//       res.send(error);
-//     } else {
-//       res.status(200);
-//       res.send(results);
-//     }
-//   });
-// });
+app.post('/trips', (req, res) => {
+  model.postATrip(req, (error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.status(201);
+      res.send(results);
+    }
+  });
+});
+
+app.get('/trips', (req, res) => {
+  model.getTrips(req, (error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.status(200);
+      res.send(results);
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`listening on ${port}...`)

@@ -52,13 +52,13 @@ var CreateAccount = function(props) {
   }
 
   return (
-    <div style={{paddingLeft: "350px"}}>
-      <Button variant="outline-success" onClick={handleShow}>
+    <div style={{paddingLeft: "300px"}}>
+      <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif"}}>
         Create Account
       </Button>
       <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Create Your Account</Modal.Title>
+            <Modal.Title style={{fontFamily: "sans-serif"}}>Create Your Account</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>

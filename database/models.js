@@ -11,7 +11,7 @@ var addUser = (req, callback) => {
 };
 
 var getUser = (req, callback) => {
-  connection.query('SELECT * FROM users WHERE userName = ?', [req.query.userName], (error, results) => {
+  connection.query('SELECT * FROM users WHERE userName = ? AND userPassword = ?', [req.query.userName, req.query.userPassword], (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -20,18 +20,29 @@ var getUser = (req, callback) => {
   });
 };
 
+var postATrip = (req, callback) => {
+  connection.query('INSERT INTO trips (destination, travelDate, userId) VALUES (?, ?, ?)', [req.body.destination, req.body.travelDate, req.body.userId], (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
 
-// var getUser = (req, callback) => {
-//   connection.query('SELECT userName FROM users WHERE userName = ? AND userPassword = ?', [req.params.userName, req.params.userPassword], (error, results) => {
-//     if (error) {
-//       callback(error, null);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// };
+var getTrips = (req, callback) => {
+  connection.query('SELECT * FROM trips WHERE userId = ?', [req.query.userId], (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results)
+    }
+  });
+};
 
 module.exports = {
   addUser,
-  getUser
+  getUser,
+  postATrip,
+  getTrips
 };
