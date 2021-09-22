@@ -22,6 +22,28 @@ app.post(`/users`, (req, res) => {
   });
 });
 
+app.get('/users', (req, res) => {
+  model.getUser(req, (error, results) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.status(200);
+      res.send(results);
+    }
+  });
+});
+
+// app.get('/users/:userPassword/:userName', (req, res) => {
+//   model.getUser(req, (error, results) => {
+//     if (error) {
+//       res.send(error);
+//     } else {
+//       res.status(200);
+//       res.send(results);
+//     }
+//   });
+// });
+
 app.listen(port, () => {
   console.log(`listening on ${port}...`)
 });

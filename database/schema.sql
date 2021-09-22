@@ -4,8 +4,8 @@ USE user_data;
 
 CREATE TABLE users (
   id int AUTO_INCREMENT PRIMARY KEY,
-  userName VARCHAR(50) NOT NULL,
-  userPassword VARCHAR(50) NOT NULL
+  userName VARCHAR(500) NOT NULL,
+  userPassword VARCHAR(1000) NOT NULL
 );
 
 CREATE TABLE trips (

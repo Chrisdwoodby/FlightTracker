@@ -4,14 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
-import LoginPage from './LoginPage.jsx';
+import CreateAccount from './CreateAccount.jsx';
+import ExistingUser from './ExistingUser.jsx';
 
 function NavHeader(props) {
-
+  const [signedIn, setUser] = useState('Log In');
 
   var home = function() {
-    props.showHome(false)
-  }
+    props.showHome(false);
+  };
 
 
   return (
@@ -44,11 +45,14 @@ function NavHeader(props) {
       <Button variant="outline-success" onClick={props.updateFlight} style={{paddingLeft: "10px"}}>Search</Button>
     </Form>
     <Nav.Link>
-      <LoginPage/>
+      <CreateAccount setUser={setUser} signedIn={signedIn}/>
+    </Nav.Link>
+    <Nav.Link>
+      <ExistingUser  setUser={setUser} signedIn={signedIn}/>
     </Nav.Link>
   </Navbar.Collapse>
 </Navbar>
   )
-}
+};
 
-export default NavHeader
+export default NavHeader;
