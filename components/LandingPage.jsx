@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import AUTH_TOKEN from '../config.js';
 import FlightData from './FlightData.jsx'
-import Container from 'react-bootstrap/Container';
 import NavHeader from './NavHeader.jsx';
 import HomePage from './HomePage.jsx';
+import Footer from './Footer.jsx';
 
 function LandingPage(props) {
 
@@ -39,6 +39,7 @@ function LandingPage(props) {
       <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport} showHome={renderHome}/>
       <HomePage showHome={showHome} renderHome={renderHome}/>
       <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading} />
+      <Footer/>
     </div>
   )
 

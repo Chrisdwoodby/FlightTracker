@@ -12,7 +12,7 @@ var CreateAccount = function(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [encrypted, setPassword] = useState('')
+  const [encrypted, setPassword] = useState('');
 
   var newPassword = function (password) {
     const key = 'ybdoow sirhc';
@@ -24,6 +24,8 @@ var CreateAccount = function(props) {
 
   var addUser = function() {
     const userObj = {
+      firstName: props.userFirstName,
+      lastName: props.userLastName,
       userName: props.signedIn,
       userPassword: encrypted
     };
@@ -52,7 +54,7 @@ var CreateAccount = function(props) {
   }
 
   return (
-    <div style={{paddingLeft: "300px"}}>
+    <div style={{paddingLeft: "170px"}}>
       <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif"}}>
         Create Account
       </Button>
@@ -62,6 +64,18 @@ var CreateAccount = function(props) {
           </Modal.Header>
           <Modal.Body>
             <Form>
+              <Form.Group className="mb-3" >
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" placeholder="First name"
+                  onChange={event => props.setUserFirstName(event.target.value)}
+                required={true}/>
+              </Form.Group>
+              <Form.Group className="mb-3" >
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="text" placeholder="Last name"
+                  onChange={event => props.setUserLastName(event.target.value)}
+                required={true}/>
+              </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email"
@@ -89,7 +103,7 @@ var CreateAccount = function(props) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
+            <Button variant="outline-success" type="submit" onClick={handleSubmit}>
               Create Account
             </Button>
           </Modal.Footer>

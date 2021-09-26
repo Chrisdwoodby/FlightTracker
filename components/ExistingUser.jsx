@@ -12,7 +12,7 @@ var ExistingUser = function(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [encrypted, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('Log in');
+  const [displayName, setDisplayName] = useState('Log In');
 
   var checkPassword = function(password) {
     const key = 'ybdoow sirhc';
@@ -26,8 +26,9 @@ var ExistingUser = function(props) {
     axios.get('http://localhost:9009/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
       console.log(response);
-      setDisplayName(`welcome ${response.data[0].userName}!`);
-      props.getUserFlightData(response.data[0].id);
+      setDisplayName(`Welcome ${response.data[0].firstName}!`);
+      props.displayUser(`My Itinerary`)
+      props.setUserID(response.data[0].id);
     })
     .catch((error) => {
       console.error(error);
@@ -73,7 +74,7 @@ var ExistingUser = function(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button variant="outline-success" type="submit" onClick={handleSubmit}>
             Log In
           </Button>
         </Modal.Footer>

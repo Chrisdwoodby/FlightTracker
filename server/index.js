@@ -6,8 +6,6 @@ const axios = require('axios');
 const port = 9009;
 var fs = require('fs');
 
-
-
 app.use(express.json());
 app.use(express.static(__dirname + '/../dist'))
 

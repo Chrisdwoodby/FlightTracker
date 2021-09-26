@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import AUTH_TOKEN from '../config.js';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 import LandingPage from './LandingPage.jsx';
 import Image from 'react-bootstrap/Image';
 import plane from '../airlineLogos/plane.png'
@@ -38,7 +37,7 @@ function FlightData(props) {
   }
 
   return (
-   <Container >
+   <Container>
     {!props.loading && !props.showHome &&
     <Row >
       {console.log(props.flights)}
