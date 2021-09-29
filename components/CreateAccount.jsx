@@ -54,13 +54,13 @@ var CreateAccount = function(props) {
   }
 
   return (
-    <div style={{paddingLeft: "170px"}}>
-      <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif"}}>
-        Create Account
+    <div style={{paddingLeft: "150px"}}>
+      <Button data-testid="create-account" variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
+        Sign Up
       </Button>
       <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title style={{fontFamily: "sans-serif"}}>Create Your Account</Modal.Title>
+            <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Create Your Account</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>

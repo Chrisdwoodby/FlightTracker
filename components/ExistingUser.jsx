@@ -12,7 +12,7 @@ var ExistingUser = function(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [encrypted, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('Log In');
+  const [displayName, setDisplayName] = useState('Login');
 
   var checkPassword = function(password) {
     const key = 'ybdoow sirhc';
@@ -43,12 +43,12 @@ var ExistingUser = function(props) {
 
   return (
     <>
-    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif"}}>
+    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
       {displayName}
     </Button>
     <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title style={{fontFamily: "sans-serif"}}>Log Into Your Account</Modal.Title>
+          <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Log Into Your Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

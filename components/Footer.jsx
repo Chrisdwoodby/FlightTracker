@@ -10,7 +10,7 @@ var Footer = function(props) {
 
   return (
     <div style={{paddingTop: "250px"}}>
-      <Row style={{ontFamily: "sans-serif", color: "white", padding: "100px", backgroundColor: "rgb(48,48,48)"}}>
+      <Row style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "white", padding: "100px", backgroundColor: "rgb(48,48,48)"}}>
         <Col style={{paddingLeft: "300px"}}>
           <Row><ContactPage/></Row>
           <Nav.Link href="https://aviationstack.com/" style={{color: "white"}}>The AviationStack API</Nav.Link>
@@ -18,7 +18,7 @@ var Footer = function(props) {
           <Nav.Link href="https://github.com/Chrisdwoodby/FlightTracker" style={{color: "white"}}>GitHub</Nav.Link>
         </Col>
         <Col>
-          <Image src={CDWLogo} width="200px" height="200px"/>
+          <Image src={CDWLogo} width="250px" height="250px"/>
         </Col>
       </Row>
     </div>

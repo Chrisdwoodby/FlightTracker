@@ -6,9 +6,39 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LandingPage from './LandingPage.jsx';
 import Image from 'react-bootstrap/Image';
-import plane from '../airlineLogos/plane.png'
+import plane from '../airlineLogos/plane.png';
 
 function FlightData(props) {
+
+  var setAircraft = function() {
+    if (props.flights.data[0].aircraft !== null) {
+      if (props.flights.data[0].aircraft.iata[0] === 'B') {
+        return 'Type of aircraft: Boeing ' + props.flights.data[0].aircraft.iata;
+      } else if (props.flights.data[0].aircraft.iata[0] === 'A') {
+        return 'Type of aircraft: Airbus ' + props.flights.data[0].aircraft.iata;
+      } else {
+        return 'Type of aircraft: ' + props.flights.data[0].aircraft.iata;
+      }
+    } else {
+      return 'Type of Aircraft: Unavailable';
+    }
+  }
+
+  var setLiveSpeed = function() {
+    if (props.flights.data[0].live !== null) {
+      return 'Current Ground Speed: ' + props.flights.data[0].live.speed_horizontal;
+    } else {
+      return 'Current Ground Speed: Unavailable';
+    }
+  };
+
+  var setLiveAltitude = function() {
+    if (props.flights.data[0].live !== null) {
+      return 'Current Altitude: ' + props.flights.data[0].live.altitude;
+    } else {
+      return 'Current Altitude: Unavailable';
+    }
+  }
 
   var getTime = function(arrival) {
     var diff = Date.parse(arrival) - new Date();
@@ -30,9 +60,9 @@ function FlightData(props) {
 
   var flightStatus = function(status) {
     if (status === null) {
-      return 'Arriving on time'
+      return 'Arriving on time';
     } else {
-      return 'This flight has been delayed ' + props.flights.data[0].arrival.delay + ' minutes'
+      return 'This flight has been delayed ' + props.flights.data[0].arrival.delay + ' minutes';
     }
   }
 
@@ -46,11 +76,22 @@ function FlightData(props) {
         <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} id="logo"/>
       </Col>
       <Col>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}</Row>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "green", fontWeight: "bold"}}>{getTime(props.flights.data[0].arrival.scheduled)}</Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}
+        </Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+          {setAircraft()}
+        </Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+          {setLiveSpeed()}
+        </Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+          {setLiveAltitude()}
+        </Row>
+        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "green", fontWeight: "bold"}}>{getTime(props.flights.data[0].arrival.scheduled)}
+        </Row>
       </Col>
       <Row
-         id="alert" style={{textAlign: "center"}}>{flightStatus(props.flights.data[0].arrival.delay)}
+        id="alert" style={{textAlign: "center"}}>{flightStatus(props.flights.data[0].arrival.delay)}
       </Row>
       <Row id="overview" style={{padding: '70px'}}>
         <Col style={{paddingTop: "45px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "4px"}}>

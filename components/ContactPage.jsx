@@ -20,12 +20,12 @@ var ContactPage = function() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Looking Forward to Hearing From You</Modal.Title>
+          <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "15px"}}>Looking Forward to Hearing From You</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h3>Email</h3>
-          <p>Chrisdwoodby@gmail.com</p>
-          <h3>LinkedIn</h3>
+          <h3 style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "15px"}}>Email</h3>
+          <p>cdwflighttracker@gmail.com</p>
+          <h3 style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "15px"}}>LinkedIn</h3>
           <Nav.Link href="https://www.linkedin.com/in/christopher-woodby-766a88202/">LinkedIn/ChristopherWoodby
           </Nav.Link>
         </Modal.Body>

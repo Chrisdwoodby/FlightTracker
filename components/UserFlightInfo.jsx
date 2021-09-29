@@ -10,7 +10,7 @@ var UserFlightInfo = function(props) {
   const [userTrips, setTrips] = useState([]);
 
   var getUserFlightData = function() {
-    props.setLoading(true)
+    props.setLoading(true);
     axios.get('http://localhost:9009/trips', {params: {userId: props.userID}})
     .then((response) => {
       console.log(response);
@@ -28,7 +28,7 @@ var UserFlightInfo = function(props) {
   }
   return (
     <>
-      <button className="btn btn-link" role="link" onClick={handleClick} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif", paddingRight: "100px"}}>
+      <button className="btn btn-link" role="link" onClick={handleClick} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif", paddingRight: "100px", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
         Your Flight Details
       </button>
       <Offcanvas show={show} onHide={handleClose}>

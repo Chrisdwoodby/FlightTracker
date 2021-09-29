@@ -49,12 +49,12 @@ var PostFlightData = function(props) {
 
   return (
   <>
-    <button className="btn btn-link" role="link" onClick={handleShow} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif"}}>
+    <button className="btn btn-link" role="link" onClick={handleShow} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
         Save a Trip
     </button>
     <Modal show={show} onHide={handleClose} animation={false}>
       <Modal.Header closeButton>
-        <Modal.Title style={{fontFamily: "sans-serif"}}>Save Your Itinerary</Modal.Title>
+        <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Save Your Itinerary</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>

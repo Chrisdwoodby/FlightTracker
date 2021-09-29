@@ -16,8 +16,8 @@ function NavHeader(props) {
   const [userID, setUserID] = useState('');
   const [userFirstName, setUserFirstName] = useState('');
   const [userLastName, setUserLastName] = useState('');
-  const [signedIn, setUser] = useState('Log In');
-  const [userDataPopout, displayUser] = useState('Please log in to show details');
+  const [signedIn, setUser] = useState('Login');
+  const [userDataPopout, displayUser] = useState('Please log in to show details');;
   const [loading, setLoading] = useState(true);
 
   var home = function() {
@@ -48,19 +48,19 @@ function NavHeader(props) {
         <Form className="d-flex">
           <FormControl
             type="search"
-            placeholder="Flight iata"
+            placeholder="Flight Number (IATA)"
             className="mr-2"
             aria-label="Search"
             onChange={event => props.setFlightIata(event.target.value)}
           />
           <FormControl
             type="search"
-            placeholder="Airport iata"
+            placeholder="Airport"
             className="mr-2"
             aria-label="Search"
             onChange={event => props.setAirport(event.target.value)}
           />
-          <Button variant="outline-success" onClick={props.updateFlight} style={{paddingLeft: "10px"}}>Search</Button>
+          <Button variant="outline-success" onClick={props.updateFlight} style={{paddingLeft: "10px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>Search</Button>
         </Form>
         <Nav.Link>
           <CreateAccount setUser={setUser} signedIn={signedIn}
