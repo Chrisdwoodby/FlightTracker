@@ -35,7 +35,11 @@
   },
   "jest": {
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
-    "moduleFileExtensions": ["js", "json", "jsx"]
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
   },
   "devDependencies": {
     "babel-loader": "^8.2.2",
