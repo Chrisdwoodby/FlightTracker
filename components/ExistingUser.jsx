@@ -23,7 +23,7 @@ var ExistingUser = function(props) {
   };
 
   var authenticate = function() {
-    axios.get('https://ec2-3-144-21-176.us-east-2.compute.amazonaws.com/users', {params: {userName: props.signedIn, userPassword: encrypted}})
+    axios.get('https://172.31.15.228/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
       console.log(response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
