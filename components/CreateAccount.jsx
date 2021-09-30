@@ -29,7 +29,7 @@ var CreateAccount = function(props) {
       userName: props.signedIn,
       userPassword: encrypted
     };
-    axios.post('https://172.31.15.228/users', userObj)
+    axios.post('http://localhost:9009/users', userObj)
     .then((response) => {
       props.setUser(`Welcome ${props.signedIn}!`)
     })
