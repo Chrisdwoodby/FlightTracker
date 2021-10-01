@@ -11,4 +11,4 @@ GETTING STARTED:
 
 4. Inside the database folder create a new file named db.config.js. Once created use "module.exports = {}" and inside the object input your MySQL credentials. 
 
-If you have completed all of these steps successfully congratulations! You should now be able to open a fully functional application in your browser. 
+If you have completed all of these steps successfully, congratulations! After compiling the files and initiating the server you should now be able to open a fully functional application in your browser. 
