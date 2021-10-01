@@ -23,7 +23,7 @@ var ExistingUser = function(props) {
   };
 
   var authenticate = function() {
-    axios.get('http://localhost:9009/users', {params: {userName: props.signedIn, userPassword: encrypted}})
+    axios.get('http://www.cdwflighttracker.com/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
       console.log(response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
