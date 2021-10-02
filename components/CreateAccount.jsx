@@ -29,7 +29,7 @@ var CreateAccount = function(props) {
       userName: props.signedIn,
       userPassword: encrypted
     };
-    axios.post('http://www.cdwflighttracker.com/users', userObj)
+    axios.post('http://3.144.21.176/users', userObj)
     .then((response) => {
       props.setUser(`Welcome ${props.signedIn}!`)
     })
