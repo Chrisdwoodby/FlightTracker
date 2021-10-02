@@ -20,7 +20,7 @@ var CreateAccount = function(props) {
     const iv = CryptoJS.enc.Base64.parse(key);
     const ciphertext = CryptoJS.AES.encrypt(password, keyutf, { iv: iv }).toString();
     setPassword(ciphertext);
-  };
+  };http://www.cdwflighttracker.com/
 
   var addUser = function() {
     const userObj = {
@@ -29,7 +29,7 @@ var CreateAccount = function(props) {
       userName: props.signedIn,
       userPassword: encrypted
     };
-    axios.post('http://www.cdwflighttracker.com/users', userObj)
+    axios.post('http://3.144.21.176/users', userObj)
     .then((response) => {
       props.setUser(`Welcome ${props.signedIn}!`)
     })
