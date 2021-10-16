@@ -23,7 +23,7 @@ var ExistingUser = function(props) {
   };
 
   var authenticate = function() {
-    axios.get('http://18.219.7.64/users', {params: {userName: props.signedIn, userPassword: encrypted}})
+    axios.get('http://52.14.88.6/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
       console.log(response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
