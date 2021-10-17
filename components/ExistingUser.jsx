@@ -23,7 +23,7 @@ var ExistingUser = function(props) {
   };
 
   var authenticate = function() {
-    axios.get('https://cdwflighttracker.herokuapp.com/users', {params: {userName: props.signedIn, userPassword: encrypted}})
+    axios.get('https://us-cdbr-east-04.cleardb.com/users', {params: {userName: props.signedIn, userPassword: encrypted}})
     .then((response) => {
       console.log(response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
