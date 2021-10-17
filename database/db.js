@@ -11,10 +11,20 @@ var connection = mysql.createConnection({
 connection.connect((error) => {
   if (error) {
     console.log(error);
+    setTimeout(handleDisconnect, 2000);
   } else {
     console.log("Successfully connected to the database.");
   }
 });
 
+connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+      handleDisconnect();                         
+    } else {                                      
+      throw err;                                  
+    }
+  });
+}
 
 module.exports = connection;
