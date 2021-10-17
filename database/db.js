@@ -26,5 +26,6 @@ connection.on('error', function(err) {
     }
   });
 }
+handleDisconnect();
 
 module.exports = connection;
