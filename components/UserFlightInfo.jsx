@@ -11,7 +11,7 @@ var UserFlightInfo = function(props) {
 
   var getUserFlightData = function() {
     props.setLoading(true);
-    axios.get('http://52.14.88.6/trips', {params: {userId: props.userID}})
+    axios.get('https://cdwflighttracker.herokuapp.com/trips', {params: {userId: props.userID}})
     .then((response) => {
       console.log(response);
       setTrips(response.data);
