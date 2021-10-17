@@ -24,8 +24,8 @@ connection.on('error', function(err) {
     } else {                                      
       throw err;                                  
     }
-  });
-}
+});
+
 handleDisconnect();
 
 module.exports = connection;
