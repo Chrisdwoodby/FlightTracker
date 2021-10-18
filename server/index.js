@@ -3,7 +3,7 @@ const connection = require('../database/db.js');
 const model = require('../database/models.js');
 const app = express();
 const axios = require('axios');
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 80;
 var fs = require('fs');
 
 app.use(express.json());
