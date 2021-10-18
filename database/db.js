@@ -1,14 +1,14 @@
 var mysql = require('mysql');
 var dbConfig = require('./db.config.js');
 
-var pool = mysql.createPool({
+var connection = mysql.createPool({
   host: dbConfig.HOST,
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
   database: dbConfig.DB
 });
 
-pool.connect((error) => {
+connection.connect((error) => {
   if (error) {
     console.log(error);
   } else {
@@ -16,4 +16,4 @@ pool.connect((error) => {
   }
 });
 
-module.exports = pool;
+module.exports = connection;
