@@ -31,7 +31,7 @@ var PostFlightData = function(props) {
       airline: airline,
       userId: props.userID
     };
-    axios.post('http://us-cdbr-east-04.cleardb.com/trips', tripObj)
+    axios.post('http://cdwflighttracker.herokuapp.com//trips', tripObj)
     .then((response) => {
       console.log(response);
     })
