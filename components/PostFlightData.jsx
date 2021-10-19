@@ -31,7 +31,7 @@ var PostFlightData = function(props) {
       airline: airline,
       userId: props.userID
     };
-    axios.post('http://18.190.99.131/trips', tripObj)
+    axios.post('http://us-cdbr-east-04.cleardb.com/trips', tripObj)
     .then((response) => {
       console.log(response);
     })
