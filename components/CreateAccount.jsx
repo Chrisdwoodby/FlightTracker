@@ -29,7 +29,7 @@ var CreateAccount = function(props) {
       userName: props.signedIn,
       userPassword: encrypted
     };
-    axios.post('http://us-cdbr-east-04.cleardb.com/users', userObj)
+    axios.post('http://cdwflighttracker.herokuapp.com/users', userObj)
     .then((response) => {
       props.setUser(`Welcome ${props.signedIn}!`)
     })
