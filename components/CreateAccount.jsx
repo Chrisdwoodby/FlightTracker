@@ -14,13 +14,6 @@ var CreateAccount = function(props) {
   const handleShow = () => setShow(true);
   const [encrypted, setPassword] = useState('');
 
-  var newPassword = function (password) {
-    const key = 'ybdoow sirhc';
-    const keyutf = CryptoJS.enc.Utf8.parse(key);
-    const iv = CryptoJS.enc.Base64.parse(key);
-    const ciphertext = CryptoJS.AES.encrypt(password, keyutf, { iv: iv }).toString();
-    setPassword(ciphertext);
-  };http://www.cdwflighttracker.com/
 
   var addUser = function() {
     const userObj = {
@@ -29,13 +22,14 @@ var CreateAccount = function(props) {
       userName: props.signedIn,
       userPassword: encrypted
     };
-    axios.post('http://cdwflighttracker.herokuapp.com/users', userObj)
+    axios.post('http://localhost:8000/users', userObj)
     .then((response) => {
       props.setUser(`Welcome ${props.signedIn}!`)
     })
     .catch((error) => {
       console.log(error)
     })
+    setPassword('')
   };
   //-------------------------------------------------------
   var confirmPassword = function(password) {
@@ -89,12 +83,7 @@ var CreateAccount = function(props) {
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password"
-                  onChange={event => newPassword(event.target.value)}
-                required={true}/>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" placeholder="Password"
+                  onChange={event => setPassword(event.target.value)}
                 required={true}/>
               </Form.Group>
             </Form>

@@ -3,8 +3,9 @@ const connection = require('../database/db.js');
 const model = require('../database/models.js');
 const app = express();
 const axios = require('axios');
-const port = process.env.PORT || 5000;
+const port = 8000;
 var fs = require('fs');
+var CryptoJS = require("crypto-js");
 
 app.use(express.json());
 app.use(express.static(__dirname + '/../dist'))
@@ -15,6 +16,12 @@ app.post(`/users`, (req, res) => {
       res.send(error);
     } else {
       res.status(201);
+      const key = 'ybdoow sirhc';
+      const keyutf = CryptoJS.enc.Utf8.parse(key);
+      const iv = CryptoJS.enc.Base64.parse(key);
+      const ciphertext = CryptoJS.AES.encrypt(results.userPassword, keyutf, { iv: iv }).toString();
+      results.userPassword = ciphertext;
+      console.log(results)
       res.send(results);
     }
   });
@@ -26,6 +33,11 @@ app.get('/users', (req, res) => {
       res.send(error);
     } else {
       res.status(200);
+      const key = 'ybdoow sirhc';
+      const keyutf = CryptoJS.enc.Utf8.parse(key);
+      const iv = CryptoJS.enc.Base64.parse(key);
+      const ciphertext = CryptoJS.AES.encrypt(results.userPassword, keyutf, { iv: iv }).toString();
+      results.userPassword = ciphertext;
       res.send(results);
     }
   });
