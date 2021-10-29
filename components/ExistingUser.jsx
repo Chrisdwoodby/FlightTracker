@@ -14,18 +14,10 @@ var ExistingUser = function(props) {
   const [encrypted, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('Login');
 
-  var checkPassword = function(password) {
-    const key = 'ybdoow sirhc';
-    const keyutf = CryptoJS.enc.Utf8.parse(key);
-    const iv = CryptoJS.enc.Base64.parse(key);
-    const ciphertext = CryptoJS.AES.encrypt(password, keyutf, { iv: iv }).toString();
-    setPassword(ciphertext);
-  };
-
   var authenticate = function() {
-    axios.get('https://172.31.15.228/users', {params: {userName: props.signedIn, userPassword: encrypted}})
+    axios.get(`http://localhost:8000/users?userName=${props.signedIn}&userPassword=${encrypted}`)
     .then((response) => {
-      console.log(response);
+      console.log('name', response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
       props.displayUser(`My Itinerary`)
       props.setUserID(response.data[0].id);
@@ -43,7 +35,8 @@ var ExistingUser = function(props) {
 
   return (
     <>
-    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
+    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif",
+      textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
       {displayName}
     </Button>
     <Modal show={show} onHide={handleClose} animation={false}>
@@ -65,7 +58,7 @@ var ExistingUser = function(props) {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password"
-                onChange={event => checkPassword(event.target.value)}
+                onChange={event => setPassword(event.target.value)}
               />
             </Form.Group>
           </Form>

@@ -31,7 +31,7 @@ var PostFlightData = function(props) {
       airline: airline,
       userId: props.userID
     };
-    axios.post('https://172.31.15.228/trips', tripObj)
+    axios.post('http://localhost:8000/trips', tripObj)
     .then((response) => {
       console.log(response);
     })
