@@ -21,7 +21,6 @@ app.post(`/users`, (req, res) => {
       const iv = CryptoJS.enc.Base64.parse(key);
       const ciphertext = CryptoJS.AES.encrypt(results.userPassword, keyutf, { iv: iv }).toString();
       results.userPassword = ciphertext;
-      console.log(results)
       res.send(results);
     }
   });
