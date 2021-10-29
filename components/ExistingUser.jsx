@@ -17,7 +17,6 @@ var ExistingUser = function(props) {
   var authenticate = function() {
     axios.get(`http://3.144.170.108/users?userName=${props.signedIn}&userPassword=${encrypted}`)
     .then((response) => {
-      console.log('name', response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
       props.displayUser(`My Itinerary`)
       props.setUserID(response.data[0].id);
