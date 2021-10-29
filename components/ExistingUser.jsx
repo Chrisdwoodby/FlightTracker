@@ -15,7 +15,7 @@ var ExistingUser = function(props) {
   const [displayName, setDisplayName] = useState('Login');
 
   var authenticate = function() {
-    axios.get(`http://localhost:8000/users?userName=${props.signedIn}&userPassword=${encrypted}`)
+    axios.get(`http://3.144.170.108/users?userName=${props.signedIn}&userPassword=${encrypted}`)
     .then((response) => {
       console.log('name', response);
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
