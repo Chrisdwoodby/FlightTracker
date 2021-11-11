@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import AUTH_TOKEN from '../config.js';
 import FlightData from './FlightData.jsx'
@@ -17,7 +17,6 @@ function LandingPage(props) {
 
 
   var updateFlight = function() {
-    setLoading(true);
     var params = {
       access_key: AUTH_TOKEN,
       flight_iata: requestedFlight,
@@ -28,7 +27,6 @@ function LandingPage(props) {
     .then(response => {
       getFlight(response.data);
       renderHome(false);
-      setLoading(false);
       showFlight(true);
     })
     .catch((error) => {

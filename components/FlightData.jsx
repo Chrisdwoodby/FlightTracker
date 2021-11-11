@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import AUTH_TOKEN from '../config.js';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import LandingPage from './LandingPage.jsx';
 import Image from 'react-bootstrap/Image';
 import plane from '../airlineLogos/plane.png';
 
@@ -68,9 +65,7 @@ function FlightData(props) {
 
   return (
    <Container>
-    {!props.loading &&
     <Row >
-      {console.log(props.flights)}
       <Row style={{padding: '12px', fontSize:"30px", fontFamily: "sans-serif", letterSpacing: "2px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
       <Col md="auto">
         <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} id="logo"/>
@@ -105,7 +100,6 @@ function FlightData(props) {
         </Col>
       </Row>
     </Row>
-    }
    </Container>
   )
 }

@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import Modal from 'react-bootstrap/Modal';
-import Offcanvas from 'react-bootstrap/Offcanvas';
 import Nav from 'react-bootstrap/Nav';
 
 var ContactPage = function() {
