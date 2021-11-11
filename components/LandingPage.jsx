@@ -13,6 +13,7 @@ function LandingPage(props) {
   const [flights, getFlight] = useState([]);
   const [requestedAirport, setAirport] = useState('');
   const [showHome, renderHome] = useState(true);
+  const [info, showFlight] = useState(false);
 
 
   var updateFlight = function() {
@@ -28,17 +29,35 @@ function LandingPage(props) {
       getFlight(response.data);
       renderHome(false);
       setLoading(false);
+      showFlight(true);
     })
     .catch((error) => {
       console.log('looks like an error occured in FLightData.jsx ' + error)
     })
   }
+  const renderFunc = function() {
+    if (!showHome && info) {
+      return (
+        <FlightData requestedFlight={requestedFlight} flights={flights}
+        loading={loading} />
+      )
+    }
+    if (showHome && !info) {
+      return (
+        <HomePage showHome={showHome} renderHome={renderHome}/>
+      )
+    }
+  }
 
   return (
     <div>
-      <NavHeader requestedFlight={requestedFlight} setFlightIata={setFlightIata} updateFlight={updateFlight} requestedAirport={requestedAirport} setAirport={setAirport} showHome={renderHome}/>
-      <HomePage showHome={showHome} renderHome={renderHome}/>
-      <FlightData requestedFlight={requestedFlight} flights={flights} loading={loading} />
+      <NavHeader renderFunc={renderFunc} requestedFlight={requestedFlight} setFlightIata={setFlightIata}
+       updateFlight={updateFlight} requestedAirport={requestedAirport} 
+       setAirport={setAirport} renderHome={renderHome} showFlight={showFlight}/>
+      {/* <HomePage showHome={showHome} renderHome={renderHome}/>
+      <FlightData requestedFlight={requestedFlight} flights={flights}
+       loading={loading} /> */}
+       {renderFunc()}
       <Footer/>
     </div>
   )

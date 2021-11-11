@@ -8,7 +8,6 @@ import CreateAccount from './CreateAccount.jsx';
 import ExistingUser from './ExistingUser.jsx';
 import UserFlightInfo from './UserFlightInfo.jsx';
 import PostFlightData from './PostFlightData.jsx';
-import axios from 'axios';
 import CDWLogo from '../airlineLogos/CDWLogo.png';
 import Image from 'react-bootstrap/Image';
 
@@ -20,9 +19,16 @@ function NavHeader(props) {
   const [userDataPopout, displayUser] = useState('Please log in to show details');;
   const [loading, setLoading] = useState(true);
 
-  var home = function() {
-    props.showHome(false);
+  const home = function() {
+    props.renderHome(true);
+    props.showFlight(false);
   };
+
+  const flight = function() {
+    props.updateFlight();
+    props.renderFunc();
+
+  }
 
   return (
     <Navbar bg="dark" expand="lg">
@@ -38,6 +44,9 @@ function NavHeader(props) {
         >
           <Nav.Link>
             <PostFlightData userID={userID} />
+          </Nav.Link>
+          <Nav.Link id="home" onClick={home}>
+            Home
           </Nav.Link>
           <Nav.Link>
             <UserFlightInfo userDataPopout={userDataPopout}
@@ -55,12 +64,12 @@ function NavHeader(props) {
           />
           <FormControl
             type="search"
-            placeholder="Airport"
+            placeholder="Arrival Airport"
             className="mr-2"
             aria-label="Search"
             onChange={event => props.setAirport(event.target.value)}
           />
-          <Button variant="outline-success" onClick={props.updateFlight} style={{paddingLeft: "10px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>Search</Button>
+          <Button variant="outline-success" onClick={flight} style={{paddingLeft: "10px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>Search</Button>
         </Form>
         <Nav.Link>
           <CreateAccount setUser={setUser} signedIn={signedIn}
