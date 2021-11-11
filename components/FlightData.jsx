@@ -68,7 +68,7 @@ function FlightData(props) {
 
   return (
    <Container>
-    {!props.loading && !props.showHome &&
+    {!props.loading &&
     <Row >
       {console.log(props.flights)}
       <Row style={{padding: '12px', fontSize:"30px", fontFamily: "sans-serif", letterSpacing: "2px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>

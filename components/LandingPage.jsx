@@ -54,9 +54,6 @@ function LandingPage(props) {
       <NavHeader renderFunc={renderFunc} requestedFlight={requestedFlight} setFlightIata={setFlightIata}
        updateFlight={updateFlight} requestedAirport={requestedAirport} 
        setAirport={setAirport} renderHome={renderHome} showFlight={showFlight}/>
-      {/* <HomePage showHome={showHome} renderHome={renderHome}/>
-      <FlightData requestedFlight={requestedFlight} flights={flights}
-       loading={loading} /> */}
        {renderFunc()}
       <Footer/>
     </div>
