@@ -15,7 +15,7 @@ var ExistingUser = function(props) {
   const [displayName, setDisplayName] = useState('Login');
 
   var authenticate = function() {
-    axios.get(`http://localhost:9009/users?userName=${props.signedIn}&userPassword=${encrypted}`)
+    axios.get(`http://3.23.10.37/users?userName=${props.signedIn}&userPassword=${encrypted}`)
     .then((response) => {
       setDisplayName(`Welcome ${response.data[0].firstName}!`);
       props.displayUser(`My Itinerary`)
