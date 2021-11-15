@@ -31,7 +31,7 @@ function FlightData(props) {
 
   var setLiveAltitude = function() {
     if (props.flights.data[0].live !== null) {
-      return 'Current Altitude: ' + props.flights.data[0].live.altitude;
+      return 'Current Altitude: ' + props.flights.data[0].live.altitude + ' Feet';
     } else {
       return 'Current Altitude: Unavailable';
     }
@@ -64,22 +64,22 @@ function FlightData(props) {
   }
 
   return (
-   <Container>
+   <Container id="backgroundColor">
     <Row >
-      <Row style={{padding: '12px', fontSize:"30px", fontFamily: "sans-serif", letterSpacing: "2px"}}>{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
+      <Row id="airline">{props.flights.data[0].airline.name + ' flight ' + props.flights.data[0].flight.icao}</Row>
       <Col md="auto">
         <Image src={require('../airlineLogos/' + props.flights.data[0].airline.iata + '.png').default} id="logo"/>
       </Col>
       <Col>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}
+        <Row  id="live">The aircraft will arrive at gate {props.flights.data[0].arrival.gate} in terminal {props.flights.data[0].arrival.terminal}
         </Row>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+        <Row id="live">
           {setAircraft()}
         </Row>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+        <Row id="live">
           {setLiveSpeed()}
         </Row>
-        <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>
+        <Row  id="live" >
           {setLiveAltitude()}
         </Row>
         <Row style={{padding: '12px', fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "green", fontWeight: "bold"}}>{getTime(props.flights.data[0].arrival.scheduled)}

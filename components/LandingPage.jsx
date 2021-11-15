@@ -48,7 +48,7 @@ function LandingPage(props) {
   }
 
   return (
-    <div>
+    <div id="backgroundColor">
       <NavHeader renderFunc={renderFunc} requestedFlight={requestedFlight} setFlightIata={setFlightIata}
        updateFlight={updateFlight} requestedAirport={requestedAirport} 
        setAirport={setAirport} renderHome={renderHome} showFlight={showFlight}/>

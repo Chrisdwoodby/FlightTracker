@@ -27,23 +27,45 @@
 #logo {
   height: 200px;
   width: 200px;
-  padding: 15px;
+  margin: 15px;
   border-radius: 25%;
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 20px white;
 }
 
 #alert {
   padding: 15px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   font-family: sans-serif;
   text-transform: uppercase;
   font-size: 2em;
   letter-spacing: 4px;
   justify-content: center;
   align-items: center;
-  font-weight: bolder;
+  font-weight: bolder; 
 }
+#plane {
+  animation-name: stretch;
+  animation-duration: 1.0s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+@keyframes stretch {
+  0% {
+      transform: scale(1);
+      border-radius: 100%;
+  }
 
+  50% {
+  }
+
+  100% {
+      transform: scale(1.2);
+      shadow: white 1px 0 10px;
+  }
+}
 
 #overview {
   border-radius: 15px;
@@ -52,4 +74,100 @@
 }
 #home {
   color: white;
+  padding-right: 50px;
 }
+#dropdown {
+  padding-right: 50px;
+}
+#about_me {
+  font-family: sans-serif;
+  padding: 15px;
+}
+#about_background {
+  background-color: #d9d9d9;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+}
+#profile {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+}
+#profile:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 15px white;
+}
+#full_name {
+  background-color: #d9d9d9;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px;
+}
+#title {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+#mission {
+  background-color: #d9d9d9;
+  font-family: sans-serif;
+  border-radius: 15px;
+  padding: 20px;
+}
+#backgroundColor {
+  background-color: #e0e0e0;
+}
+#nav {
+  background-color: rgb(48,48,48);
+}
+#live {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 12px;
+}
+#airline {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 30px;
+  padding: 12px;
+}
+#button {
+  background-color: #195721;
+  color: white;
+  border: none;
+}
+#button:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 10px white;
+}
+#footer {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: rgb(48,48,48);
+  color: white;
+  padding: 100px;
+}
+#home {
+  padding-left: 21px;
+}
+
+
+/* background: linear-gradient(#e0e0e0, rgb(48,48,48)); */

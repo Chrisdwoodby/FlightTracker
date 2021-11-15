@@ -34,10 +34,9 @@ var ExistingUser = function(props) {
 
   return (
     <>
-    <Button variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif",
-      textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
+    <button className="btn btn-link" role="link" onClick={handleShow} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
       {displayName}
-    </Button>
+    </button>
     <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Log Into Your Account</Modal.Title>
@@ -66,7 +65,7 @@ var ExistingUser = function(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="outline-success" type="submit" onClick={handleSubmit}>
+          <Button id="button" type="submit" onClick={handleSubmit}>
             Log In
           </Button>
         </Modal.Footer>

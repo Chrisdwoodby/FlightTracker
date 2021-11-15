@@ -10,6 +10,7 @@ import UserFlightInfo from './UserFlightInfo.jsx';
 import PostFlightData from './PostFlightData.jsx';
 import CDWLogo from '../airlineLogos/CDWLogo.png';
 import Image from 'react-bootstrap/Image';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function NavHeader(props) {
   const [userID, setUserID] = useState('');
@@ -31,9 +32,9 @@ function NavHeader(props) {
   }
 
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar id="nav" expand="lg">
       <Navbar.Brand href="#" style={{paddingLeft: "50px",  paddingRight: "50px"}}>
-        <Image src={CDWLogo} width="100px" height="100px"/>
+        <Image  onClick={home} src={CDWLogo} width="100px" height="100px"/>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
@@ -42,17 +43,54 @@ function NavHeader(props) {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link>
-            <PostFlightData userID={userID} />
-          </Nav.Link>
-          <Nav.Link id="home" onClick={home}>
-            Home
-          </Nav.Link>
-          <Nav.Link>
-            <UserFlightInfo userDataPopout={userDataPopout}
-              loading={loading} userID={userID} setLoading={setLoading}
-            />
-          </Nav.Link>
+          <Dropdown id="dropdown">
+            <Dropdown.Toggle id="button" >
+                User Menu
+            </Dropdown.Toggle>
+            <Dropdown.Menu variant="dark">
+              <Dropdown.Item href="#/action-1">
+                <Nav.Link>
+                  <PostFlightData userID={userID} />
+                </Nav.Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
+                <Nav.Link>
+                  <UserFlightInfo userDataPopout={userDataPopout}
+                    loading={loading} userID={userID} setLoading={setLoading}
+                  />
+                </Nav.Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Nav.Link id="home" onClick={home}>
+                  Home
+                </Nav.Link>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown id="dropdown">
+          <Dropdown.Toggle id="button" >
+              Sign in Options
+          </Dropdown.Toggle>
+          <Dropdown.Menu variant="dark">
+            <Dropdown.Item href="#/action-1">
+              <Nav.Link>
+              <CreateAccount setUser={setUser} signedIn={signedIn}
+                setUserFirstName={setUserFirstName} userFirstName={userFirstName}
+                setUserLastName={setUserLastName} userLastName={userLastName}
+                />
+              </Nav.Link>
+            </Dropdown.Item>
+            <Dropdown.Item href="#/action-2">
+              <Nav.Link>
+              <ExistingUser
+                setUser={setUser} signedIn={signedIn}
+                displayUser={displayUser}
+                setUserID={setUserID} userID={userID}
+                />
+              </Nav.Link>
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         </Nav>
         <Form className="d-flex">
           <FormControl
@@ -69,21 +107,8 @@ function NavHeader(props) {
             aria-label="Search"
             onChange={event => props.setAirport(event.target.value)}
           />
-          <Button variant="outline-success" onClick={flight} style={{paddingLeft: "10px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>Search</Button>
+          <Button id="button" onClick={flight} style={{paddingLeft: "10px", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>Search</Button>
         </Form>
-        <Nav.Link>
-          <CreateAccount setUser={setUser} signedIn={signedIn}
-           setUserFirstName={setUserFirstName} userFirstName={userFirstName}
-           setUserLastName={setUserLastName} userLastName={userLastName}
-           />
-        </Nav.Link>
-        <Nav.Link>
-          <ExistingUser
-            setUser={setUser} signedIn={signedIn}
-            displayUser={displayUser}
-            setUserID={setUserID} userID={userID}
-          />
-        </Nav.Link>
       </Navbar.Collapse>
     </Navbar>
   )

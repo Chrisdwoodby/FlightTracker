@@ -117,7 +117,7 @@ var PostFlightData = function(props) {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="outline-success" type="submit" onClick={onSubmit}>
+        <Button id="button" type="submit" onClick={onSubmit}>
           Save Information
         </Button>
       </Modal.Footer>

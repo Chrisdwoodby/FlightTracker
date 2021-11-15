@@ -10,7 +10,7 @@ var Footer = function(props) {
 
   return (
     <div style={{paddingTop: "250px"}}>
-      <Row style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", color: "white", padding: "100px", backgroundColor: "rgb(48,48,48)"}}>
+      <Row id="footer">
         <Col style={{paddingLeft: "300px"}}>
           <Row><ContactPage/></Row>
           <Nav.Link href="https://aviationstack.com/" style={{color: "white"}}>The AviationStack API</Nav.Link>

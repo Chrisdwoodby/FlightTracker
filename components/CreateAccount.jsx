@@ -48,10 +48,10 @@ var CreateAccount = function(props) {
   }
 
   return (
-    <div style={{paddingLeft: "150px"}}>
-      <Button data-testid="create-account" variant="outline-success" onClick={handleShow} style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
+    <div >
+      <button className="btn btn-link" role="link" onClick={handleShow} style={{textDecoration: 'none', color: "white", fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px", fontSize: "12px"}}>
         Sign Up
-      </Button>
+      </button>
       <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title style={{fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "2px"}}>Create Your Account</Modal.Title>
@@ -92,7 +92,7 @@ var CreateAccount = function(props) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="outline-success" type="submit" onClick={handleSubmit}>
+            <Button id="button" type="submit" onClick={handleSubmit}>
               Create Account
             </Button>
           </Modal.Footer>
