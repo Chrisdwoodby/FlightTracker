@@ -11,7 +11,7 @@ var UserFlightInfo = function(props) {
 
   var getUserFlightData = function() {
     props.setLoading(true);
-    axios.get('http://3.23.10.37/trips', {params: {userId: props.userID}})
+    axios.get('http://3.21.180.222/trips', {params: {userId: props.userID}})
     .then((response) => {
       console.log(response);
       setTrips(response.data);
